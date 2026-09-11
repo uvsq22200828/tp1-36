@@ -4,6 +4,9 @@ public class Fraction {
     private int numerator;
     private int denominator;
 
+    public static final Fraction ZERO = new Fraction(0, 1);
+    public static final Fraction UN = new Fraction(1, 1);
+
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -18,6 +21,17 @@ public class Fraction {
     }
 
 
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public double doubleValue() {
+        return (double) this.numerator / this.denominator;
+    }
 
 
 

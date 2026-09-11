@@ -4,6 +4,7 @@ public class Main {
         assert new Fraction(1, 2).toString().equals("1/2");
         assert new Fraction(1).toString().equals("1/1");
         assert new Fraction().toString().equals("0/1");
+        assert Math.abs(new Fraction(1, 3).doubleValue() - 0.3333333333333333) < 1E-8;
         Fraction fraction = new Fraction();
         System.out.println(fraction.toString());
     }
