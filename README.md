@@ -34,7 +34,7 @@ Validez les changements (cf. [Enregistrer des modifications dans le dépôt](htt
 1. Ajoutez la méthode `toString` à la classe `Fraction` (cf. [`Object.toString`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html#toString())) qui retournera la chaîne `"Je suis une fraction."` et modifiez la classe `Main` en conséquence;
 Validez les changements;
     ```Java
-    System.out.println(fraction.toString());
+    assertEqyuals("Je suis une fraction.", new Fraction().toString());
     ```
 1. Publiez vos modifications sur le dépôt distant (cf. [Travailler avec des dépôts distants](https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants));
 Vous utiliserez le protocole `https` pour cela;
@@ -44,25 +44,56 @@ Vérifiez avec le navigateur;
     ```
 1. Sur la forge, ajoutez un fichier de documentation `README.md`.
 Quelle syntaxe est utilisée pour ce fichier ?
-    > Répondre ici
+    > git add README.md et le symtaxe est le Markdown.
 1. Récupérez localement les modifications effectuées sur la forge.
     ```bash
-    # Répondre ici
+    git pull
     ```
 1. Ajoutez les répertoires et fichiers issus de la compilation aux fichiers ignorés par `git` (cf. [`.gitignore` pour Java](https://github.com/github/gitignore/blob/main/Java.gitignore));
     ```bash
-    # Copier ici le contenu de `.gitignore`
+    # # Compiled class file
+        *.class
+
+        # Log file
+        *.log
+
+        # BlueJ files
+        *.ctxt
+
+        # Mobile Tools for Java (J2ME)
+        .mtj.tmp/
+
+        # Package Files #
+        *.jar
+        *.war
+        *.nar
+        *.ear
+        *.zip
+        *.tar.gz
+        *.rar
+
+
+        hs_err_pid*
+        replay_pid*
+
+        # VS Code
+        /.vscode/
     ```
 1. Retirez les fichiers de configuration de l'IDE du projet;
     ```bash
-    # Répondre ici
+        # VS Code
+        /.vscode/
     ```
     Ajoutez-les aux fichiers ignorés par `git`.
     ```bash
     # Copier ici les modifications de `.gitignore`
     ```
 1. Configurez l'accès par clé publique/clé privée à la forge (cf. [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)).
-    > Expliquez la procédure de façon synthétique
+   ```bash
+    - générer une nouvelle clé ssh et ajoute dans l'agent ssh
+    - ajoute la nouvelle clé ssh au compte github
+    - test la connexion ssh avec github
+    ```
 
 ## Partie II (à faire durant le TD) : compléter la classe `Fraction`
 Dans cet partie, vous compléterez les classes `Fraction` et `Main`.
@@ -74,7 +105,8 @@ Vous respecterez les consignes ci-dessous :
 
 1. Ajoutez les attributs représentants le numérateur et le dénominateur (nombres entiers).
     ```Java
-    // Déclaration des attributs
+    private int numerator;
+    private int denominator;
     ```
 1. Ajoutez les constructeurs (cf. [Constructor Declarations](https://docs.oracle.com/javase/specs/jls/se19/html/jls-8.html#jls-8.8)) suivants :
     * initialisation avec un numérateur et un dénominateur,
