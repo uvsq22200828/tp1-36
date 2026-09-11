@@ -143,6 +143,9 @@ Vous respecterez les consignes ci-dessous :
 1. Ajoutez une méthode permettant l'addition de deux fractions (la méthode `add` prend en paramètre *une* fraction et *retourne* la somme de la fraction courante et du paramètre),
    ```Java
     // Assertions pour tester l'addition
+        assert new Fraction(1,4).add(new Fraction(1,2)).toString().equals("3/4");
+        assert new Fraction(3,4).add(new Fraction(2,5)).toString().equals("23/20");
+        assert new Fraction(2,4).add(new Fraction(2,4)).toString().equals("1/1");
     ```
 1. Ajoutez le test d'égalité entre fractions (deux fractions sont égales si elles représentent la même fraction réduite) (cf. [`java.lang.Object.equals`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object))),
    ```Java

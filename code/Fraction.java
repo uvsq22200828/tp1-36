@@ -34,6 +34,32 @@ public class Fraction {
     }
 
 
+    private int pgcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return pgcd(b, a % b);
+    }
+    
+    public Fraction add(Fraction other) {
+        int newNumerateur = this.numerator * other.denominator + other.numerator * this.denominator;
+        int newDenominateur = this.denominator * other.denominator;
+
+        if (newNumerateur % newDenominateur == 0){
+            newNumerateur = newNumerateur / newDenominateur;
+            newDenominateur = 1;
+        }
+
+        if (pgcd(newNumerateur, newDenominateur) != 1) {
+            int gcd = pgcd(newNumerateur, newDenominateur);
+            newNumerateur = newNumerateur / gcd;
+            newDenominateur = newDenominateur / gcd;
+        }
+
+        return new Fraction(newNumerateur, newDenominateur);
+    }
+
+
 
     public String toString() {
         return numerator + "/" + denominator;
